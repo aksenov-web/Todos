@@ -8,8 +8,8 @@ $('#new_task').keypress(function(event){
 	}
 });
 $('button').click(function() {
-  $('input:text').val('');
-  $('.todo').remove('div');
+  //$('input:text').val('');
+  $('#todo').remove('div');
 })
 
 
