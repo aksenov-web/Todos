@@ -1,0 +1,22 @@
+body {
+  background: lightgrey;
+  display: flex;
+  justify-content: center;
+}
+
+#main {
+  padding: 0 auto;
+  width: 500px;
+  display: table-row;
+
+}
+
+.input-group {
+  width: 500px;
+}
+
+h1 {
+  text-align: center;
+  color: grey;
+  font-size: 50px;
+}
