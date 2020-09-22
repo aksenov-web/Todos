@@ -39,9 +39,15 @@ $('#new_task').keypress(function(event){
 
 $('.remove_button').click(function() {
   if ($(this).parent().find('[type="text"]').attr('disabled')) {
-  }
-  else {
+    //localStorage.removeItem();
     $(this).parent().find('[type="text"]').val('');
+    $(this).parent().find('[type="text"]').attr('disabled', false);
+    $(".checkbox").prop("checked", false);
+  }
+
+  else {
+    alert('Task is in progress!');
+
   }
   //$('input:text').val('');
   //$('.todo_field').addClass('to_remove');
