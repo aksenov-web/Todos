@@ -5,40 +5,38 @@
     <title>TODO</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
   </head>
   <body>
     <div id="main">
-      <div><h1>TODO</h1><br>
+      <div>
+        <h1>TODO</h1><br>
       </div>
-
       <div class="input-group">
         <div class="input-group-prepend">
-        <span class="input-group-text">Task</span>
+          <span class="input-group-text">Task</span>
         </div>
-        <textarea id="new_task" class="form-control" aria-label="With textarea" placeholder="Fill in text and press Enter to proceed..."></textarea><input id="clear" type="button" name="" value="clear">
+        <input id="new_task" class="form-control" aria-label="With textarea" placeholder="Fill in text and press Enter to proceed...">
       </div>
-
       <br>
       <div id="todo">
-<!--        <div  class="todo_field input-group mb-3">
-          <div class="input-group-prepend">
-            <div class="input-group-text">
-              <input type="checkbox" aria-label="Checkbox for following text input">
-            </div>
-          </div>
-          <input id="task" type="text" class="task_text form-control" aria-label="Text input with checkbox">
-          <button type="button" class="remove_button btn btn-light">x</button>
+        <!--        <div  class="todo_field input-group mb-3">
+        <div class="input-group-prepend">
+        <div class="input-group-text">
+        <input type="checkbox" aria-label="Checkbox for following text input">
+        </div>
+        </div>
+        <input id="task" type="text" class="task_text form-control" aria-label="Text input with checkbox">
+        <button type="button" class="remove_button btn btn-light">x</button>
         </div>
 
--->
+        -->
+
       </div>
-
-
+      <button type="button" class="clear btn btn-light">Clear All</button>
     </div>
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
