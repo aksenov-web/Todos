@@ -19,6 +19,7 @@ body {
 }
 
 h1 {
+  opacity: 0.5;
   text-align: center;
   color: lightgray;
   font-size: 100px;
