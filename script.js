@@ -20,15 +20,30 @@ $('.clear').click(function() {
 
 for (let i = 1; i <= count; i++) {
   let comment = localStorage.getItem('comment_value(' + i + ')');
-  $('#todo').append('<div data-order="' + count + '"  class="todo_field input-group mb-3"><div class="input-group-prepend"><div class="input-group-text"><input class="checkbox" type="checkbox" aria-label="Checkbox for following text input"></div></div><input type="text" value="' + comment +'" class="form-control" aria-label="Text input with checkbox"><button type="button" class="remove_button btn btn-light">x</button></div>');
+  $('#todo').append('<div data-order="' + i + '"  class="input-group mb-3"><div class="input-group-prepend"><div class="input-group-text"><input class="checkbox" type="checkbox" aria-label="Checkbox for following text input"></div></div><input type="text" class="todo_field form-control" value="' + comment +'" aria-label="Text input with checkbox"><button type="button" class="remove_button btn btn-light">x</button></div>');
 }
+
+/*$('.todo_field').on('keypress', '.comment', function() {
+  console.log($(this).parent().parent().parent().find('input').val());
+  console.log($(this).parent().parent().parent().data('order'));
+});
+*/
+
+$('.todo_field').keypress(function() {
+  //alert("!");
+  //console.log($(this).find('input').val());
+  console.log($(this).data('order'));
+  console.log($(this).val());
+  //localStorage.setItem(comment_value(), $(this).val());
+});
+
 
 $('#new_task').keypress(function(event){
   if(event.which == '13'){
     let comment = $('#new_task').val();
     let count = Number(localStorage.getItem('comment_count'));
     localStorage.setItem('comment_count', ++count);
-    $('#todo').append('<div data-order="' + count + '" class="todo_field  input-group mb-3"><div class="input-group-prepend"><div class="input-group-text"><input class="checkbox" type="checkbox" aria-label="Checkbox for following text input"></div></div><input type="text" value="' + comment +'" class="form-control" aria-label="Text input with checkbox"><button type="button" class="remove_button btn btn-light">x</button></div>');
+    $('#todo').append('<div data-order="' + count + '" class="input-group mb-3"><div class="input-group-prepend"><div class="input-group-text"><input class="checkbox" type="checkbox" aria-label="Checkbox for following text input"></div></div><input class="todo_field form-control" type="text" value="' + comment +'"  aria-label="Text input with checkbox"><button type="button" class="remove_button btn btn-light">x</button></div>');
     //$('.todo_field:last-child').clone().appendTo('#todo');
     //$('#task').val($('#new_task').val());
     $('#new_task').val('');
@@ -37,17 +52,16 @@ $('#new_task').keypress(function(event){
   }
 });
 
+
 $('.remove_button').click(function() {
   if ($(this).parent().find('[type="text"]').attr('disabled')) {
     //localStorage.removeItem();
-    $(this).parent().find('[type="text"]').val('');
-    $(this).parent().find('[type="text"]').attr('disabled', false);
+    $(this).parent().find('[type="text"]').val('').attr('disabled', false);
     $(".checkbox").prop("checked", false);
   }
 
   else {
     alert('Task is in progress!');
-
   }
   //$('input:text').val('');
   //$('.todo_field').addClass('to_remove');
