@@ -30,11 +30,12 @@ for (let i = 1; i <= count; i++) {
 */
 
 $('.todo_field').keypress(function() {
+  let comment = $(this).val();
+  localStorage.setItem('comment_value('+ ($(this).parent().data('order')) + ')', comment);
   //alert("!");
   //console.log($(this).find('input').val());
-  console.log($(this).data('order'));
+  console.log($(this).parent().data('order'));
   console.log($(this).val());
-  //localStorage.setItem(comment_value(), $(this).val());
 });
 
 
