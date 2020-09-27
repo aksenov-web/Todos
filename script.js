@@ -42,6 +42,7 @@ $('#new_task').keypress(function(event){
 
     localStorage.setItem('comment_value(' + count + ')', comment);
     location.reload(true);
+    select('#new_task');
   }
 });
 
@@ -61,7 +62,7 @@ $('.remove_button').click(function() {
     let comment = '';
     $(this).parent().find('[type="text"]').val(comment).attr('disabled', false);
     localStorage.setItem('comment_value('+ ($(this).parent().data('order')) + ')', comment);
-    $(".checkbox").prop("checked", false);
+    $(this).parent().find(".checkbox").prop("checked", false);
   }
 
   else {
