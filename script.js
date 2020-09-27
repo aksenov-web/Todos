@@ -59,9 +59,12 @@ $('.todo_field').on('keypress', function() {
 $('.remove_button').click(function() {
   if ($(this).parent().find('[type="text"]').attr('disabled')) {
     //localStorage.removeItem();
+    localStorage.setItem('comment_count', count -1);
     let comment = '';
+    $(this).parent().remove();
     $(this).parent().find('[type="text"]').val(comment).attr('disabled', false);
-    localStorage.setItem('comment_value('+ ($(this).parent().data('order')) + ')', comment);
+    //localStorage.setItem('comment_value('+ ($(this).parent().data('order')) + ')', comment);
+    localStorage.removeItem('comment_value('+ ($(this).parent().data('order')) + ')', comment);
     $(this).parent().find(".checkbox").prop("checked", false);
   }
 
