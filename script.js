@@ -29,15 +29,6 @@ for (let i = 1; i <= count; i++) {
 });
 */
 
-$('.todo_field').keypress(function() {
-  let comment = $(this).val();
-  localStorage.setItem('comment_value('+ ($(this).parent().data('order')) + ')', comment);
-  //alert("!");
-  //console.log($(this).find('input').val());
-  console.log($(this).parent().data('order'));
-  console.log($(this).val());
-});
-
 
 $('#new_task').keypress(function(event){
   if(event.which == '13'){
@@ -50,14 +41,26 @@ $('#new_task').keypress(function(event){
     $('#new_task').val('');
 
     localStorage.setItem('comment_value(' + count + ')', comment);
+    location.reload(true);
   }
+});
+
+$('.todo_field').on('keypress', function() {
+  let comment = $(this).val();
+  localStorage.setItem('comment_value('+ ($(this).parent().data('order')) + ')', comment);
+  //alert("!");
+  //console.log($(this).find('input').val());
+  console.log($(this).parent().data('order'));
+  console.log($(this).val());
 });
 
 
 $('.remove_button').click(function() {
   if ($(this).parent().find('[type="text"]').attr('disabled')) {
     //localStorage.removeItem();
-    $(this).parent().find('[type="text"]').val('').attr('disabled', false);
+    let comment = '';
+    $(this).parent().find('[type="text"]').val(comment).attr('disabled', false);
+    localStorage.setItem('comment_value('+ ($(this).parent().data('order')) + ')', comment);
     $(".checkbox").prop("checked", false);
   }
 
