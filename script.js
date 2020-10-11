@@ -41,10 +41,10 @@ $('#new_task').keypress(function(event){
     $('#new_task').val('');
 
     localStorage.setItem('comment_value(' + count + ')', comment);
-    location.reload(true);
-    select('#new_task');
-  }
-});
+
+    $('#new_task').select();
+    //location.reload(true);
+  }});
 
 $('.todo_field').on('keypress', function() {
   let comment = $(this).val();
@@ -55,7 +55,7 @@ $('.todo_field').on('keypress', function() {
   console.log($(this).val());
 });
 
-
+$( document ).ready(function() {
 $('.remove_button').click(function() {
   if ($(this).parent().find('[type="text"]').attr('disabled')) {
     //localStorage.removeItem();
@@ -74,7 +74,7 @@ $('.remove_button').click(function() {
   //$('input:text').val('');
   //$('.todo_field').addClass('to_remove');
   //$('.todo_field').remove();
-});
+})});
 
 $('.checkbox').click(function() {
   if ($(this).parent().parent().parent().find('[type="text"]').attr('disabled')) {
